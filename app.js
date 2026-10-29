@@ -21,21 +21,173 @@ const pageSlugs = {
 };
 
 const featureCatalog = [
-  { id: "chatbot", icon: "message", category: "automation", externalRequirements: [] },
-  { id: "comments", icon: "comments", category: "automation", externalRequirements: ["platformAccess"] },
-  { id: "instagram", icon: "instagram", category: "channels", externalRequirements: ["platformAccess"] },
-  { id: "liveChat", icon: "chat", category: "channels", externalRequirements: [] },
-  { id: "publishing", icon: "calendar", category: "content", externalRequirements: ["platformAccess"] },
-  { id: "messenger", icon: "send", category: "channels", externalRequirements: ["platformAccess"] },
-  { id: "sms", icon: "phone", category: "campaigns", externalRequirements: ["provider"] },
-  { id: "email", icon: "mail", category: "campaigns", externalRequirements: ["provider"] },
-  { id: "commerce", icon: "bag", category: "commerce", externalRequirements: [] },
-  { id: "analytics", icon: "chart", category: "insights", externalRequirements: [] },
+  {
+    id: "chatbot",
+    category: "automation",
+    title_ar: "روبوت Messenger والردود الآلية",
+    title_en: "Messenger Chatbot & Automated Replies",
+    description_ar: "قدرات مصدرية لتهيئة ردود Messenger، بما فيها ردود الكلمات المفتاحية. لم يتم التحقق من تشغيلها بعد.",
+    description_en: "Source-audited capabilities for configuring Messenger replies, including keyword responses. Runtime behavior has not been verified.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (A02)", "docs/chatpion-audit/09-wasla-marketing-features.md"],
+    runtime_verified: false,
+    external_dependencies: ["Meta app review, permissions, webhooks, and account configuration"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "message",
+  },
+  {
+    id: "flowBuilder",
+    category: "automation",
+    title_ar: "منشئ تدفقات المحادثة",
+    title_en: "Visual Flow Builder",
+    description_ar: "توجد وحدة لمنشئ تدفقات مرئية في المصدر؛ تفعيلها وصلاحياتها وحفظ التدفقات وتنفيذها تحتاج إلى اختبار.",
+    description_en: "A visual flow-builder module is present in source; activation, permissions, flow saving, and execution still require testing.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (A01)", "docs/chatpion-audit/03-addons-inventory.md", "docs/chatpion-audit/13-zero-paid-addons-strategy.md (A01)"],
+    runtime_verified: false,
+    external_dependencies: ["Module registration, license entitlement, and runtime verification"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "flow",
+  },
+  {
+    id: "comments",
+    category: "automation",
+    title_ar: "أتمتة التعليقات",
+    title_en: "Comment Automation",
+    description_ar: "يتضمن المصدر مسارات للردود على تعليقات Facebook وInstagram؛ تعتمد على صلاحيات المنصات واختبار التشغيل.",
+    description_en: "Source includes Facebook and Instagram comment-reply paths; platform permissions and runtime testing are required.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (B01, C01)", "docs/chatpion-audit/04-integrations-and-apis.md"],
+    runtime_verified: false,
+    external_dependencies: ["Meta app review, permissions, webhooks, and account configuration"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "comments",
+  },
+  {
+    id: "instagram",
+    category: "channels",
+    title_ar: "التواصل عبر Instagram",
+    title_en: "Instagram Communication",
+    description_ar: "توجد مسارات مصدرية لرسائل Instagram وبعض أدوات النشر؛ التوفر يعتمد على نوع الحساب والصلاحيات واختبارات Meta.",
+    description_en: "Source contains Instagram messaging and some publishing paths; availability depends on account type, permissions, and Meta testing.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (C)", "docs/chatpion-audit/04-integrations-and-apis.md"],
+    runtime_verified: false,
+    external_dependencies: ["Eligible Instagram account, Meta app review, permissions, and API configuration"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "instagram",
+  },
+  {
+    id: "liveChat",
+    category: "channels",
+    title_ar: "محادثات Messenger وInstagram",
+    title_en: "Messenger & Instagram Conversations",
+    description_ar: "توجد مسارات للدردشة المباشرة المرتبطة بـMessenger وInstagram؛ لا تمثل صندوق وارد موحدًا ولا تؤكد توفر قنوات أخرى.",
+    description_en: "Source contains live-chat paths for Messenger and Instagram; this is not a unified inbox and does not establish support for other channels.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (D01)", "docs/chatpion-audit/09-wasla-marketing-features.md"],
+    runtime_verified: false,
+    external_dependencies: ["Meta account permissions and secure live-chat service configuration"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "chat",
+  },
+  {
+    id: "publishing",
+    category: "content",
+    title_ar: "نشر وجدولة المحتوى",
+    title_en: "Social Publishing & Scheduling",
+    description_ar: "يتضمن المصدر أدوات نشر وجدولة لبعض محتويات Facebook وInstagram؛ يلزم إعداد الحسابات والمهام المجدولة واختبارها.",
+    description_en: "Source includes publishing and scheduling paths for some Facebook and Instagram content; account setup and scheduled-job testing are required.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (E01)", "docs/chatpion-audit/04-integrations-and-apis.md"],
+    runtime_verified: false,
+    external_dependencies: ["Meta account permissions, supported post formats, and scheduler configuration"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "calendar",
+  },
+  {
+    id: "messenger",
+    category: "campaigns",
+    title_ar: "حملات البث عبر Messenger",
+    title_en: "Messenger Broadcast Campaigns",
+    description_ar: "وجد التدقيق مسارات جزئية للحملات، لكن استراتيجية التنفيذ تتطلب تطويرًا مخصصًا؛ تبقى هذه القدرة مخفية حتى اكتمالها والتحقق منها.",
+    description_en: "The audit found partial campaign paths, but the implementation strategy requires custom development; this capability stays hidden until completed and verified.",
+    availability_status: "PLANNED",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (F01)", "docs/chatpion-audit/13-zero-paid-addons-strategy.md (F01)"],
+    runtime_verified: false,
+    external_dependencies: ["Custom development, Meta permissions, and campaign configuration"],
+    requires_paid_addon: false,
+    public_visibility: false,
+    icon: "send",
+  },
+  {
+    id: "sms",
+    category: "campaigns",
+    title_ar: "حملات الرسائل النصية",
+    title_en: "SMS Marketing",
+    description_ar: "يتضمن المصدر إنشاء حملات SMS؛ يتطلب الإرسال إعداد مزود خارجي وقد تترتب عليه رسوم، ولا يوجد ضمان للتسليم.",
+    description_en: "Source includes SMS campaign creation; sending requires an external provider and may incur fees. Delivery is not guaranteed.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (G01)", "docs/chatpion-audit/04-integrations-and-apis.md"],
+    runtime_verified: false,
+    external_dependencies: ["Configured SMS provider, sender, country, and encoding"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "phone",
+  },
+  {
+    id: "email",
+    category: "campaigns",
+    title_ar: "حملات البريد الإلكتروني",
+    title_en: "Email Marketing",
+    description_ar: "يتضمن المصدر إعداد حملات بريد إلكتروني؛ يعتمد الإرسال على إعداد SMTP أو مزود خارجي واختبارات التسليم والموافقة.",
+    description_en: "Source includes email-campaign setup; sending depends on SMTP or an external provider and delivery and consent testing.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (H01)", "docs/chatpion-audit/04-integrations-and-apis.md"],
+    runtime_verified: false,
+    external_dependencies: ["Configured SMTP or email provider, domain authentication, and consent handling"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "mail",
+  },
+  {
+    id: "commerce",
+    category: "commerce",
+    title_ar: "أدوات المتجر الإلكتروني",
+    title_en: "E-commerce Tools",
+    description_ar: "يتضمن المصدر وظائف أساسية لإدارة متجر ومنتجات وطلبات؛ لا يعني ذلك توفر تكامل WooCommerce المتقدم أو بوابات دفع محلية مؤكدة.",
+    description_en: "Source includes core store, product, and order-management paths; this does not establish advanced WooCommerce integration or local payment-gateway availability.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (I01)", "docs/chatpion-audit/03-addons-inventory.md", "docs/chatpion-audit/04-integrations-and-apis.md"],
+    runtime_verified: false,
+    external_dependencies: ["Store configuration and separately verified payment-provider setup, if used"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "bag",
+  },
+  {
+    id: "analytics",
+    category: "insights",
+    title_ar: "التقارير ومؤشرات النشاط",
+    title_en: "Reports & Activity Metrics",
+    description_ar: "توجد مؤشرات وتقارير مصدرية لحالات النشاط والحملات؛ يجب التحقق من مصادر البيانات ودقتها قبل عرض نتائج فعلية.",
+    description_en: "Source contains activity and campaign metrics and reports; data sources and accuracy must be verified before presenting actual results.",
+    availability_status: "REQUIRES_RUNTIME_TEST",
+    source_evidence: ["docs/chatpion-audit/02-core-features.md (J01)", "docs/chatpion-audit/09-wasla-marketing-features.md"],
+    runtime_verified: false,
+    external_dependencies: ["Verified event and campaign data"],
+    requires_paid_addon: false,
+    public_visibility: true,
+    icon: "chart",
+  },
 ].map((feature) => ({
   ...feature,
-  availabilityStatus: "underReview",
-  marketingVisibility: "underReview",
-  screenshot: null,
   detailPageSlug: `feature-${feature.id}`,
 }));
 
@@ -50,7 +202,9 @@ const copy = {
     home: {
       eyebrow: "تواصل أوضح. نمو أذكى.",
       title: "وصلة ذكية بينك وبين عملائك",
-      lead: "أتمت محادثاتك، نظّم تواصلك مع العملاء، وأدر أدواتك التسويقية من منصة واحدة.",
+      lead: "استكشف أدوات قيد التحقق لتنظيم محادثات العملاء والردود والتعليقات وأنشطة التسويق.",
+      exploreCta: "اكتشف المميزات",
+      contactCta: "تواصل معنا",
       concept: "تصوّر توضيحي للمنتج — ليست هذه لقطة شاشة فعلية",
       overview: "كل تواصلك، في صورة أوضح",
       overviewLead: "نعمل على جمع أدوات التواصل والتسويق في تجربة واحدة تساعدك على إدارة عملك بوضوح.",
@@ -99,35 +253,20 @@ const copy = {
       lead: "تظهر هذه المجموعات كخريطة للمنتج الجاري مراجعته. لا يعني ظهورها أن الميزة متاحة أو مؤكدة.",
       notice: "مراجعة إمكانات المنتج لا تزال مستمرة. المميزات المدرجة هنا قيد المراجعة، ولن نعلن توفرها قبل التحقق.",
       categories: { all: "الكل", automation: "الأتمتة", channels: "قنوات التواصل", content: "إدارة المحتوى", campaigns: "الحملات", commerce: "التجارة", insights: "التحليلات" },
-      status: "قيد المراجعة",
+      status: "قيد التحقق",
       statusVerified: "تم التحقق",
       detailCta: "التفاصيل بعد التحقق",
       detailUnavailable: "صفحة التفاصيل ستتوفر بعد التحقق من الإمكانات.",
-      items: {
-        chatbot: ["منشئ روبوت المحادثة", "تصوّر لأدوات تساعد على تنظيم تدفقات المحادثة والردود."],
-        comments: ["أتمتة التعليقات", "مراجعة إمكانات تنظيم الردود والتفاعل على التعليقات."],
-        instagram: ["التواصل عبر Instagram", "قناة قيد المراجعة، ويعتمد دعمها على الإمكانات والتكاملات المتاحة."],
-        liveChat: ["الدردشة المباشرة", "تصوّر لمساحة لتنظيم المحادثات المباشرة مع العملاء."],
-        publishing: ["نشر المحتوى", "مراجعة أدوات تنظيم وجدولة المحتوى للقنوات المدعومة."],
-        messenger: ["التواصل عبر Messenger", "مراجعة إمكانات إدارة التواصل ومتطلبات المنصة الخارجية."],
-        sms: ["حملات الرسائل النصية", "قد تتطلب الخدمة إعداد مزود خارجي ورسومًا إضافية."],
-        email: ["حملات البريد الإلكتروني", "قد تتطلب الخدمة إعداد مزود خارجي ورسومًا إضافية."],
-        commerce: ["أدوات التجارة الإلكترونية", "مراجعة أدوات المتاجر والمنتجات والطلبات قبل إعلان توفرها."],
-        analytics: ["التحليلات والتقارير", "مراجعة البيانات والتقارير التي ستتوفر في النسخة النهائية."],
-      },
     },
     pricing: {
       eyebrow: "الأسعار والباقات",
-      title: "اختر الباقة المناسبة لعملك",
-      lead: "الباقات التالية استرشادية. الأسعار والحدود وشروط الاشتراك لم تُعتمد بعد.",
+      title: "الأسعار والباقات قيد التجهيز",
+      lead: "أسماء الباقات استرشادية فقط؛ الأسعار والمزايا وحدود الاستخدام وشروط الاشتراك غير معتمدة بعد.",
       soon: "قريبًا",
-      contact: "تواصل لمعرفة التفاصيل",
+      contact: "تواصل مع المبيعات",
       plans: ["للبدايات والأعمال الصغيرة", "للأعمال التي تنمو", "للوكالات والفرق"],
-      planNames: ["البداية", "الأعمال", "الوكالات"],
-      recommended: "خيار مقترح",
-      tableTitle: "مقارنة الباقات",
-      rows: ["الحسابات والقنوات المتصلة", "حدود روبوت المحادثة", "حدود الحملات", "الرسائل النصية والبريد", "التجارة الإلكترونية", "التحليلات", "الدعم وإدارة الفريق"],
-      note: "قد تُحتسب رسوم منفصلة من مزودي الخدمات الخارجية، مثل خدمات الرسائل. لم يتم تحديد الأسعار أو الحدود بعد.",
+      planNames: ["Starter", "Business", "Agency"],
+      note: "قد تتطلب بعض الخدمات إعدادًا خارجيًا؛ ستوضح أي تكاليف منفصلة بعد تحديد المزودين. لا توجد أسعار أو حدود معتمدة حاليًا.",
       faqTitle: "أسئلة حول الأسعار",
     },
     tutorials: {
@@ -135,7 +274,7 @@ const copy = {
       title: "تعلّم استخدام وصلة، خطوة بخطوة",
       lead: "سنضيف أدلة وشروحات عندما تصبح المواد وروابطها جاهزة.",
       search: "ابحث في الشروحات",
-      categories: ["البداية", "إعداد الحساب", "ربط القنوات", "روبوت المحادثة", "أتمتة التعليقات", "الحملات", "نشر المحتوى", "التجارة الإلكترونية", "الأسئلة الشائعة"],
+      categories: ["البدء", "ربط Facebook", "ربط Instagram", "روبوت Messenger", "منشئ تدفقات المحادثة", "أتمتة التعليقات", "نشر المحتوى الاجتماعي", "الدردشة المباشرة", "التسويق عبر البريد الإلكتروني", "التسويق عبر الرسائل النصية", "التجارة الإلكترونية", "إدارة الحساب والاشتراك"],
       empty: "لا توجد شروحات منشورة بعد",
       emptyLead: "نعمل على إعداد محتوى موثوق. عُد لاحقًا للاطلاع على التحديثات.",
       categoryLabel: "التصنيف",
@@ -155,7 +294,7 @@ const copy = {
       message: "رسالتك",
       consent: "أوافق على معالجة بياناتي للرد على استفساري، وفقًا لسياسة الخصوصية.",
       submit: "إرسال الرسالة",
-      disabled: "نموذج التواصل غير مفعّل حاليًا: لم يتم ربطه بخدمة بريد أو قاعدة بيانات. لن تُرسل البيانات أو تُحفظ.",
+      disabled: "الإرسال عبر الإنترنت غير مُعدّ حاليًا. لن تُرسل البيانات أو تُحفظ؛ أعد الإرسال بعد إعداد خدمة استقبال معتمدة.",
       unavailable: "لم يتم إعداد وسيلة تواصل عامة بعد.",
       faqShortcut: "قد تجد إجابتك في صفحة الأسئلة الشائعة.",
       sending: "جارٍ الإرسال…",
@@ -202,7 +341,9 @@ const copy = {
     home: {
       eyebrow: "Clearer communication. Smarter growth.",
       title: "Smart Connections. Smarter Growth.",
-      lead: "Automate conversations, organize customer interactions, and manage your marketing tools in one platform.",
+      lead: "Explore capabilities under review for organizing customer conversations, replies, comments, and marketing activities.",
+      exploreCta: "Explore Features",
+      contactCta: "Contact Us",
       concept: "Conceptual product illustration — not an actual product screenshot",
       overview: "Your customer conversations, made clearer",
       overviewLead: "We’re shaping a connected experience for communication and marketing tools that helps you manage your work with clarity.",
@@ -251,35 +392,20 @@ const copy = {
       lead: "These groups map the product currently under review. Their appearance does not mean a feature is available or confirmed.",
       notice: "Product capability review is ongoing. The features below are under review and will not be announced as available before verification.",
       categories: { all: "All", automation: "Automation", channels: "Channels", content: "Content", campaigns: "Campaigns", commerce: "Commerce", insights: "Analytics" },
-      status: "Under review",
+      status: "Runtime testing required",
       statusVerified: "Verified",
       detailCta: "Details after verification",
       detailUnavailable: "Feature details will be published after capabilities are verified.",
-      items: {
-        chatbot: ["Chatbot builder", "A concept for tools to organize conversation flows and replies."],
-        comments: ["Comment automation", "Reviewing capabilities for organizing comment responses and engagement."],
-        instagram: ["Instagram communication", "A channel under review; support depends on available capabilities and integrations."],
-        liveChat: ["Live chat", "A concept for a shared space to organize live customer conversations."],
-        publishing: ["Social publishing", "Reviewing tools for organizing and scheduling content on supported channels."],
-        messenger: ["Messenger communication", "Reviewing communication capabilities and third-party platform requirements."],
-        sms: ["SMS campaigns", "May require an external provider setup and additional charges."],
-        email: ["Email campaigns", "May require an external provider setup and additional charges."],
-        commerce: ["E-commerce tools", "Reviewing store, product, and order tools before announcing availability."],
-        analytics: ["Analytics & reporting", "Reviewing the data and reports planned for the final product."],
-      },
     },
     pricing: {
       eyebrow: "Pricing",
-      title: "Choose a plan that fits your business",
-      lead: "The plans below are illustrative. Pricing, limits, and subscription terms are not yet approved.",
+      title: "Plans and Pricing Coming Soon",
+      lead: "Plan names are provisional concepts only. Prices, features, usage limits, and subscription terms are not approved.",
       soon: "Coming soon",
-      contact: "Contact for details",
+      contact: "Contact Sales",
       plans: ["For individuals and small businesses", "For growing businesses", "For agencies and teams"],
       planNames: ["Starter", "Business", "Agency"],
-      recommended: "Recommended",
-      tableTitle: "Plan comparison",
-      rows: ["Connected accounts & channels", "Chatbot limits", "Campaign limits", "SMS & email limits", "E-commerce", "Analytics", "Support & team management"],
-      note: "Third-party providers, such as messaging services, may charge separately. Pricing and limits have not yet been set.",
+      note: "Some services may require external setup; any separate costs will be explained after providers are selected. No prices or limits have been approved.",
       faqTitle: "Pricing questions",
     },
     tutorials: {
@@ -287,7 +413,7 @@ const copy = {
       title: "Learn Wasla, step by step",
       lead: "Guides and tutorials will be added when materials and links are ready.",
       search: "Search tutorials",
-      categories: ["Getting started", "Account setup", "Connecting channels", "Chatbot builder", "Comment automation", "Campaigns", "Social publishing", "E-commerce", "FAQs"],
+      categories: ["Getting Started", "Connecting Facebook", "Connecting Instagram", "Messenger Chatbot", "Visual Flow Builder", "Comment Automation", "Social Publishing", "Live Chat", "Email Marketing", "SMS Marketing", "E-commerce", "Account and Subscription Management"],
       empty: "No tutorials published yet",
       emptyLead: "We’re preparing helpful, verified content. Check back for updates.",
       categoryLabel: "Category",
@@ -307,7 +433,7 @@ const copy = {
       message: "Your message",
       consent: "I agree to the processing of my information to respond to my inquiry, as described in the Privacy Policy.",
       submit: "Send message",
-      disabled: "The contact form is not active: no email service or database is connected. Your information will not be sent or stored.",
+      disabled: "Online submission is not configured. Your information will not be sent or stored; submit again after an approved receiving service is configured.",
       unavailable: "A public contact method has not been configured yet.",
       faqShortcut: "You may find an answer in our FAQ.",
       sending: "Sending…",
@@ -359,6 +485,7 @@ const icons = {
   mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
   bag: '<path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
   chart: '<path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/>',
+  flow: '<rect x="3" y="3" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/><path d="M6.5 9v3a3 3 0 0 0 3 3H14"/><path d="m12 13 2 2-2 2"/>',
   check: '<path d="m5 12 4 4L19 6"/>',
   menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
   close: '<path d="m18 6-12 12M6 6l12 12"/>',
@@ -377,7 +504,7 @@ const routeInfo = () => {
   const lang = parts[0] === "en" ? "en" : "ar";
   let page = isLocalized ? parts[1] || "home" : "notFound";
   const feature = page.startsWith("feature-") ? page.slice(8) : "";
-  if (feature) page = featureCatalog.some((item) => item.id === feature) ? "feature" : "notFound";
+  if (feature) page = featureCatalog.some((item) => item.id === feature && item.public_visibility) ? "feature" : "notFound";
   if (isLocalized && !feature && !Object.values(pageSlugs).includes(parts[1] || "")) page = "notFound";
   if (parts.length > (isLocalized ? 2 : 1)) page = "notFound";
   return { lang, page, feature };
@@ -390,7 +517,10 @@ const localizedPath = (lang, page = "home", feature = "") => {
 };
 const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 const a = (lang, page, label, cls = "text-link", attrs = "") => `<a class="${cls}" href="${localizedPath(lang, page)}" ${attrs}>${label}</a>`;
-const getFeature = (lang, item) => copy[lang].features.items[item.id];
+const getFeature = (lang, item) => ({
+  title: item[`title_${lang}`],
+  description: item[`description_${lang}`],
+});
 
 function header(lang, currentPage, currentFeature = "") {
   const t = copy[lang];
@@ -467,12 +597,11 @@ function heroVisual(lang) {
 
 function featureCard(lang, item, compact = false) {
   const t = copy[lang];
-  const [title, description] = getFeature(lang, item);
+  const { title, description } = getFeature(lang, item);
   const link = item.detailPageSlug ? `<span class="card-arrow">${t.features.detailCta}${icon("arrow")}</span>` : "";
-  const status = item.availabilityStatus === "verified" ? t.features.statusVerified : t.features.status;
   return `<article class="feature-card ${compact ? "feature-card-compact" : ""}">
     <div class="card-icon">${icon(item.icon)}</div>
-    <div class="feature-card-heading"><h3>${title}</h3><span class="status-pill">${status}</span></div>
+    <div class="feature-card-heading"><h3>${title}</h3><span class="status-pill">${t.features.status}</span></div>
     <p>${description}</p>${link}
   </article>`;
 }
@@ -481,13 +610,13 @@ function homePage(lang) {
   const t = copy[lang];
   const faqs = t.faq.items.slice(0, 4);
   return `<main>
-    <section class="hero-section"><div class="container hero-grid"><div class="hero-copy"><span class="eyebrow"><span class="eyebrow-dot"></span>${t.home.eyebrow}</span><h1>${t.home.title}</h1><p class="hero-lead">${t.home.lead}</p><div class="hero-actions"><a class="button button-primary" href="${localizedPath(lang, "contact")}">${t.nav.start}${icon("arrow")}</a><a class="button button-secondary" href="${localizedPath(lang, "features")}">${t.nav.explore}${icon("arrow")}</a></div><div class="hero-proof">${icon("lock")}<span>${lang === "ar" ? "تفاصيل المميزات قيد التحقق — دون وعود غير مؤكدة" : "Capabilities are under review — no unverified promises"}</span></div></div>${heroVisual(lang)}</div></section>
-    <section class="section section-overview"><div class="container"><div class="section-heading centered"><span class="eyebrow">${lang === "ar" ? "وصلة AI" : "WASLA AI"}</span><h2>${t.home.overview}</h2><p>${t.home.overviewLead}</p></div><div class="overview-grid">${featureCatalog.slice(0, 6).map((item) => featureCard(lang, item, true)).join("")}</div><div class="center-action">${a(lang, "features", `${t.nav.allFeatures}${icon("arrow")}`, "text-link link-arrow")}</div></div></section>
+    <section class="hero-section"><div class="container hero-grid"><div class="hero-copy"><span class="eyebrow"><span class="eyebrow-dot"></span>${t.home.eyebrow}</span><h1>${t.home.title}</h1><p class="hero-lead">${t.home.lead}</p><div class="hero-actions"><a class="button button-primary" href="${localizedPath(lang, "features")}">${t.home.exploreCta}${icon("arrow")}</a><a class="button button-secondary" href="${localizedPath(lang, "contact")}">${t.home.contactCta}${icon("arrow")}</a></div><div class="hero-proof">${icon("lock")}<span>${lang === "ar" ? "تفاصيل المميزات قيد التحقق — دون وعود غير مؤكدة" : "Capabilities are under review — no unverified promises"}</span></div></div>${heroVisual(lang)}</div></section>
+    <section class="section section-overview"><div class="container"><div class="section-heading centered"><span class="eyebrow">${lang === "ar" ? "وصلة AI" : "WASLA AI"}</span><h2>${t.home.overview}</h2><p>${t.home.overviewLead}</p></div><div class="overview-grid">${featureCatalog.filter((item) => item.public_visibility).slice(0, 6).map((item) => featureCard(lang, item, true)).join("")}</div><div class="center-action">${a(lang, "features", `${t.nav.allFeatures}${icon("arrow")}`, "text-link link-arrow")}</div></div></section>
     <section class="section section-soft"><div class="container split-section"><div class="section-copy"><span class="eyebrow">${lang === "ar" ? "تجربة أكثر ترتيبًا" : "A more organized experience"}</span><h2>${t.home.challenges}</h2><p>${t.home.challengesLead}</p><ul class="check-list">${(lang === "ar" ? ["أسئلة متكررة ومحادثات تحتاج متابعة", "مهام تسويقية موزعة بين أدوات مختلفة", "صعوبة الحفاظ على نظرة واضحة للتواصل"] : ["Recurring questions and conversations to follow up", "Marketing tasks spread across different tools", "Hard to maintain a clear view of customer communication"]).map((text) => `<li>${icon("check")}<span>${text}</span></li>`).join("")}</ul><a class="button button-secondary" href="${localizedPath(lang, "about")}">${t.misc.learn}${icon("arrow")}</a></div><div class="challenge-art"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-card art-card-main">${icon("message")}<span>${lang === "ar" ? "محادثات العملاء" : "Customer conversations"}</span><small>${lang === "ar" ? "تصوّر توضيحي" : "Concept illustration"}</small></div><div class="art-card art-card-top">${icon("calendar")}<span>${lang === "ar" ? "مهام التسويق" : "Marketing tasks"}</span></div><div class="art-card art-card-bottom">${icon("chart")}<span>${lang === "ar" ? "نظرة موحدة" : "One clear view"}</span></div></div></div></section>
     <section class="section"><div class="container"><div class="feature-spotlight"><div class="spotlight-copy"><span class="eyebrow">${lang === "ar" ? "فكرة الأتمتة" : "AUTOMATION CONCEPT"}</span><h2>${t.home.spotlight}</h2><p>${t.home.spotlightLead}</p><a class="button button-white" href="${localizedPath(lang, "features")}">${t.home.spotlightCta}${icon("arrow")}</a></div><div class="spotlight-flow"><div class="spotlight-node">${icon("message")}<span>${lang === "ar" ? "رسالة واردة" : "Incoming message"}</span></div><div class="spotlight-line"></div><div class="spotlight-node spotlight-node-active">${icon("spark")}<span>${lang === "ar" ? "قاعدة (تصوّر)" : "Rule (concept)"}</span></div><div class="spotlight-line"></div><div class="spotlight-node">${icon("send")}<span>${lang === "ar" ? "ردّ توضيحي" : "Example reply"}</span></div></div></div></div></section>
     <section class="section section-soft"><div class="container"><div class="section-heading centered"><span class="eyebrow">${lang === "ar" ? "كيف تبدأ" : "GETTING STARTED"}</span><h2>${t.home.how}</h2></div><div class="steps-grid">${t.home.steps.map((step, index) => `<article class="step-item"><span class="step-number">0${index + 1}</span><span class="step-line"></span><p>${step}</p></article>`).join("")}</div></div></section>
     <section class="section"><div class="container"><div class="section-heading centered"><span class="eyebrow">${lang === "ar" ? "لمن وصلة؟" : "WHO IT’S FOR"}</span><h2>${t.home.uses}</h2></div><div class="usecase-grid">${t.home.useCases.map((item, index) => `<div class="usecase-card"><span class="usecase-number">0${index + 1}</span><span>${item}</span>${icon("arrow")}</div>`).join("")}</div></div></section>
-    <section class="section section-soft"><div class="container"><div class="section-heading centered"><span class="eyebrow">${t.pricing.eyebrow}</span><h2>${t.home.pricing}</h2><p>${t.home.pricingLead}</p></div><div class="pricing-grid">${planCards(lang, true)}</div><div class="center-action">${a(lang, "pricing", `${t.misc.learn}${icon("arrow")}`, "text-link link-arrow")}</div></div></section>
+    <section class="section section-soft"><div class="container"><div class="section-heading centered"><span class="eyebrow">${t.pricing.eyebrow}</span><h2>${t.pricing.title}</h2><p>${t.pricing.lead}</p></div><div class="pricing-grid">${planCards(lang, true)}</div><div class="center-action">${a(lang, "pricing", `${t.misc.learn}${icon("arrow")}`, "text-link link-arrow")}</div></div></section>
     <section class="section"><div class="container learning-preview"><div><span class="eyebrow">${t.tutorials.eyebrow}</span><h2>${t.home.tutorials}</h2><p>${t.home.tutorialsLead}</p></div><div class="empty-tutorial">${icon("play")}<div><b>${t.tutorials.empty}</b><span>${t.tutorials.emptyLead}</span></div><a href="${localizedPath(lang, "tutorials")}" aria-label="${t.nav.tutorials}">${icon("arrow")}</a></div></div></section>
     ${faqSection(lang, faqs, true)}
     <section class="section section-final"><div class="container final-cta"><div><span class="eyebrow">${lang === "ar" ? "خطوتك القادمة" : "YOUR NEXT STEP"}</span><h2>${t.home.finalTitle}</h2><p>${t.home.finalLead}</p></div><a class="button button-white" href="${localizedPath(lang, "contact")}">${t.misc.contact}${icon("arrow")}</a><div class="final-glow"></div></div></section>
@@ -511,22 +640,21 @@ function aboutPage(lang) {
 
 function featuresPage(lang) {
   const t = copy[lang];
-  const cards = featureCatalog.map((item) => featureCard(lang, item)).join("");
+  const visibleFeatures = featureCatalog.filter((item) => item.public_visibility);
+  const cards = visibleFeatures.map((item) => featureCard(lang, item)).join("");
   return `<main>${pageHero(lang, t.features.eyebrow, t.features.title, t.features.lead)}
-    <section class="section"><div class="container"><div class="notice-banner">${icon("lock")}<p>${t.features.notice}</p></div><div class="filter-row" role="group" aria-label="${lang === "ar" ? "تصفية حسب التصنيف" : "Filter by category"}">${Object.entries(t.features.categories).map(([key, label], index) => `<button class="filter-chip ${index === 0 ? "active" : ""}" type="button" data-filter="${key}" aria-pressed="${index === 0}">${label}</button>`).join("")}</div><div class="features-grid" id="features-grid">${featureCatalog.map((item) => `<div data-feature-category="${item.category}">${featureCard(lang, item)}</div>`).join("")}</div><p class="filter-empty" hidden>${t.misc.noResults}</p></div></section>
+    <section class="section"><div class="container"><div class="notice-banner">${icon("lock")}<p>${t.features.notice}</p></div><div class="filter-row" role="group" aria-label="${lang === "ar" ? "تصفية حسب التصنيف" : "Filter by category"}">${Object.entries(t.features.categories).map(([key, label], index) => `<button class="filter-chip ${index === 0 ? "active" : ""}" type="button" data-filter="${key}" aria-pressed="${index === 0}">${label}</button>`).join("")}</div><div class="features-grid" id="features-grid">${visibleFeatures.map((item) => `<div data-feature-category="${item.category}">${featureCard(lang, item)}</div>`).join("")}</div><p class="filter-empty" hidden>${t.misc.noResults}</p></div></section>
     <section class="section section-soft"><div class="container external-note"><div class="card-icon">${icon("lock")}</div><div><h2>${lang === "ar" ? "متطلبات الخدمات الخارجية" : "External service requirements"}</h2><p>${lang === "ar" ? "قد تتطلب بعض أدوات التواصل إعداد حسابات أو مزودي خدمات خارجيين ورسومًا مستقلة. سنوضح المتطلبات عند تأكيدها." : "Some communication tools may require external accounts or service providers and separate charges. Requirements will be explained once confirmed."}</p></div></div></section>
     ${finalCta(lang)}</main>`;
 }
 
 function planCards(lang, compact = false) {
   const t = copy[lang].pricing;
-  return t.planNames.map((name, i) => `<article class="pricing-card ${i === 1 ? "pricing-featured" : ""} ${compact ? "pricing-compact" : ""}">
-    ${i === 1 ? `<span class="recommended-badge">${t.recommended}</span>` : ""}
+  return t.planNames.map((name, i) => `<article class="pricing-card ${compact ? "pricing-compact" : ""}">
     <div class="plan-icon">${icon(i === 0 ? "spark" : i === 1 ? "chart" : "message")}</div>
     <h3>${name}</h3><p class="plan-description">${t.plans[i]}</p>
     <div class="plan-price">${t.soon}</div><p class="plan-period">${lang === "ar" ? "الأسعار قيد الإعداد" : "Pricing is being prepared"}</p>
-    <a class="button ${i === 1 ? "button-primary" : "button-secondary"} plan-button" href="${localizedPath(lang, "contact")}">${t.contact}${icon("arrow")}</a>
-    ${compact ? "" : `<ul class="plan-features">${t.rows.slice(0, 4).map((row) => `<li>${icon("check")}<span>${row} <small>— ${t.soon}</small></span></li>`).join("")}</ul>`}
+    <a class="button button-secondary plan-button" href="${localizedPath(lang, "contact")}">${t.contact}${icon("arrow")}</a>
   </article>`).join("");
 }
 
@@ -534,7 +662,6 @@ function pricingPage(lang) {
   const t = copy[lang].pricing;
   return `<main>${pageHero(lang, t.eyebrow, t.title, t.lead)}
     <section class="section"><div class="container"><div class="pricing-grid">${planCards(lang)}</div><p class="pricing-disclaimer">${icon("lock")}<span>${t.note}</span></p></div></section>
-    <section class="section section-soft"><div class="container comparison-wrap"><div class="section-heading centered"><span class="eyebrow">${lang === "ar" ? "قارن الباقات" : "COMPARE PLANS"}</span><h2>${t.tableTitle}</h2></div><div class="comparison-table-scroll"><table class="comparison-table"><thead><tr><th>${lang === "ar" ? "الميزة" : "Feature"}</th>${t.planNames.map((name) => `<th>${name}</th>`).join("")}</tr></thead><tbody>${t.rows.map((row) => `<tr><th>${row}</th>${t.planNames.map(() => `<td><span class="table-soon">${t.soon}</span></td>`).join("")}</tr>`).join("")}</tbody></table></div><p class="pricing-disclaimer">${icon("lock")}<span>${t.note}</span></p></div></section>
     ${faqSection(lang, copy[lang].faq.items.slice(3, 6), false)}
     ${finalCta(lang)}</main>`;
 }
@@ -550,7 +677,7 @@ function contactPage(lang) {
   const t = copy[lang].contact;
   return `<main>${pageHero(lang, t.eyebrow, t.title, t.lead)}
     <section class="section"><div class="container contact-layout"><div class="contact-aside"><span class="eyebrow">${lang === "ar" ? "تواصل مباشر" : "GET IN TOUCH"}</span><h2>${lang === "ar" ? "فريق وصلة هنا لمساعدتك" : "The Wasla team is here to help"}</h2><p>${t.unavailable}</p><div class="contact-info-card">${icon("message")}<div><b>${lang === "ar" ? "الأسئلة الشائعة" : "Frequently asked questions"}</b><span>${t.faqShortcut}</span>${a(lang, "faq", lang === "ar" ? "عرض الأسئلة" : "Browse FAQs", "text-link")}</div></div><div class="contact-info-card">${icon("lock")}<div><b>${lang === "ar" ? "بياناتك مهمة" : "Your information matters"}</b><span>${lang === "ar" ? "لن نطلب منك مشاركة أي بيانات حساسة عبر هذا النموذج." : "Please don’t share sensitive information through this form."}${a(lang, "privacy", lang === "ar" ? "سياسة الخصوصية" : "Privacy policy", "text-link")}</span></div></div></div>
-    <form class="contact-form" id="contact-form" novalidate><h2>${t.formTitle}</h2><div class="form-grid"><label>${t.name}<span class="required-mark">*</span><input name="name" autocomplete="name" required minlength="2"></label><label>${t.email}<span class="required-mark">*</span><input type="email" name="email" autocomplete="email" required></label><label>${t.phone}<input type="tel" name="phone" autocomplete="tel"></label><label>${t.business}<input name="business" autocomplete="organization"></label><label class="form-wide">${t.type}<select name="inquiry">${t.types.map((type) => `<option>${type}</option>`).join("")}</select></label><label class="form-wide">${t.message}<span class="required-mark">*</span><textarea name="message" rows="5" required minlength="10"></textarea></label><label class="consent-label form-wide"><input type="checkbox" name="consent" required><span>${t.consent}</span></label></div><div class="form-status" id="form-status" role="status" aria-live="polite"></div><button class="button button-primary form-submit" type="submit" ${APP_URLS.contactEndpoint ? "" : "disabled"}>${t.submit}${icon("arrow")}</button><p class="form-disabled-note">${icon("lock")}<span>${t.disabled}</span></p></form></div></section></main>`;
+    <form class="contact-form" id="contact-form"><h2>${t.formTitle}</h2><div class="form-grid"><label>${t.name}<span class="required-mark">*</span><input name="name" autocomplete="name" required minlength="2"></label><label>${t.email}<span class="required-mark">*</span><input type="email" name="email" autocomplete="email" required></label><label>${t.phone}<input type="tel" name="phone" autocomplete="tel"></label><label>${t.business}<input name="business" autocomplete="organization"></label><label class="form-wide">${t.type}<select name="inquiry">${t.types.map((type) => `<option>${type}</option>`).join("")}</select></label><label class="form-wide">${t.message}<span class="required-mark">*</span><textarea name="message" rows="5" required minlength="10"></textarea></label><label class="consent-label form-wide"><input type="checkbox" name="consent" required><span>${t.consent}</span></label></div><div class="form-status" id="form-status" role="status" aria-live="polite"></div><button class="button button-primary form-submit" type="submit">${t.submit}${icon("arrow")}</button>${APP_URLS.contactEndpoint ? "" : `<p class="form-disabled-note">${icon("lock")}<span>${t.disabled}</span></p>`}</form></div></section></main>`;
 }
 
 function faqSection(lang, items, compact) {
@@ -573,7 +700,7 @@ function featureDetailPage(lang, id) {
   const item = featureCatalog.find((feature) => feature.id === id);
   const t = copy[lang];
   if (!item) return notFoundPage(lang);
-  const [title] = getFeature(lang, item);
+  const { title } = getFeature(lang, item);
   return `<main>${pageHero(lang, t.features.eyebrow, title, t.features.detailUnavailable)}<section class="section"><div class="container detail-placeholder"><div class="card-icon">${icon(item.icon)}</div><span class="status-pill">${t.features.status}</span><p>${t.features.notice}</p>${a(lang, "features", `${t.nav.features}${icon("arrow")}`, "button button-primary")}</div></section></main>`;
 }
 
@@ -598,7 +725,7 @@ function render() {
     tutorials: t.tutorials.lead, contact: t.contact.lead, faq: t.faq.title,
     privacy: t.legal.privacy[1], terms: t.legal.terms[1], refund: t.legal.refund[1],
   };
-  const title = page === "feature" ? getFeature(lang, featureCatalog.find((item) => item.id === feature))[0] : pageTitles[page] || (lang === "ar" ? "الصفحة غير موجودة" : "Page not found");
+  const title = page === "feature" ? getFeature(lang, featureCatalog.find((item) => item.id === feature)).title : pageTitles[page] || (lang === "ar" ? "الصفحة غير موجودة" : "Page not found");
   document.title = `${title} | ${t.brand} ${t.brandLatin}`;
   document.querySelector('meta[name="description"]').content = pageDescriptions[page] || t.features.detailUnavailable;
   document.querySelector('meta[property="og:title"]').content = document.title;
@@ -693,7 +820,7 @@ function bindInteractions(lang) {
   const form = document.getElementById("contact-form");
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!form.reportValidity() || !form.elements.consent.checked) {
+    if (!form.reportValidity()) {
       document.getElementById("form-status").textContent = copy[lang].contact.validation;
       return;
     }
@@ -724,7 +851,10 @@ function bindInteractions(lang) {
 }
 
 if (window.location.pathname === "/" || window.location.pathname === BASE_URL) {
-  window.history.replaceState({}, "", localizedPath("ar"));
+  const localizedHome = new URL(localizedPath("ar"), window.location.origin);
+  localizedHome.search = window.location.search;
+  localizedHome.hash = window.location.hash;
+  window.history.replaceState({}, "", localizedHome);
 }
 document.addEventListener("click", (event) => {
   const anchor = event.target.closest("a");
