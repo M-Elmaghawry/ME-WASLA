@@ -1,0 +1,821 @@
+# WASLA AI — COMPLETE MULTI-PAGE SAAS WEBSITE
+
+## Master Design & Development Prompt for Lovable
+
+### 1. Project Overview
+Build a complete, premium, modern, bilingual, multi-page SaaS marketing website for:
+
+**Brand Name:** Wasla AI
+**Arabic Name:** وصلة
+**Tagline (AR):** وصلة ذكية بينك وبين عملائك
+**Tagline (EN):** Smart Connections. Smarter Growth.
+
+**Industry:** Marketing Automation, Chatbots, Social Media Automation, Customer Communication, and E-commerce Tools.
+
+**Primary Market:** Egypt
+**Secondary Market:** Saudi Arabia and the wider Arab region.
+
+**Primary Audience:**
+
+- Freelancers and individual business owners.
+- Small and medium businesses.
+- E-commerce stores.
+- Marketing and advertising agencies.
+- Social media managers.
+- Service-based companies.
+- Training centers.
+- Restaurants and retail businesses.
+The platform is based on a purchased **ChatPion Extended License (Xerone IT)**, which will be customized and commercially offered as Wasla AI.
+
+The marketing website must be independent of the existing ChatPion backend.
+
+**Important:** We own the ChatPion Extended License only. We have NOT purchased any paid add-ons and do not intend to purchase paid add-ons at this stage.
+
+The source-code feature audit is still in progress.
+
+Build the website architecture so that feature information, pricing packages, integrations, and availability can be updated later without redesigning the website.
+
+Do not invent or advertise unverified functionality.
+
+---
+
+# 2. Design Inspiration — CRITICAL
+Use the following websites as references:
+
+**Primary Visual Design Reference:**
+[https://www.hostinger.com/](https://www.hostinger.com/)
+
+**Website Structure and Page Organization Reference:**
+[https://chattarget.com/](https://chattarget.com/)
+
+**Official Product Reference:**
+[https://xeroneit.net/portfolio/chatpion-best-multichannel-marketing-application-white-label](https://xeroneit.net/portfolio/chatpion-best-multichannel-marketing-application-white-label)
+
+## Hostinger-Inspired Visual Direction
+Create a visual experience inspired by Hostinger's modern SaaS website.
+
+Focus on:
+
+- Premium purple and indigo visual identity.
+- Strong modern typography.
+- Clean page sections.
+- Generous whitespace.
+- Soft lavender and neutral backgrounds.
+- Rounded cards and containers.
+- Subtle gradients and ambient background glows.
+- Beautiful product dashboard mockups.
+- Smooth animations and micro-interactions.
+- Professional pricing cards.
+- Polished navigation and dropdown menus.
+- High-quality SaaS illustrations.
+- Trustworthy and conversion-focused layouts.
+Do NOT clone Hostinger or ChatTarget pixel-for-pixel.
+
+Do not copy their proprietary artwork, logos, text, animations, or website source code.
+
+Create an original Wasla AI identity using the same design principles.
+
+## Visual Personality
+The website should feel:
+
+- Premium.
+- Trustworthy.
+- Modern.
+- Intelligent.
+- Approachable.
+- Technology-focused.
+- Suitable for Arabic-speaking business owners.
+- Comparable in visual quality to leading international SaaS websites.
+Avoid generic startup templates, excessive neon effects, crowded layouts, and random stock photography.
+
+---
+
+# 3. Color System
+Use this proposed brand palette:
+
+Design TokenColorPrimary Purple#673DE6Deep Purple#2F1C6ADark Text#1F1346Lavender#EDE9FELight Background#F8F8FFPure White#FFFFFFAccent Cyan#6FD3FFThese are proposed Wasla design tokens inspired by Hostinger's color family, not a claim that these are all Hostinger's exact current design tokens.
+
+Use:
+
+- Purple for primary buttons and active states.
+- Deep Purple for dark sections and strong headings.
+- Lavender for soft cards and supporting backgrounds.
+- Cyan sparingly for messaging and automation illustrations.
+- White and very light backgrounds for readability.
+Use consistent color variables and semantic design tokens.
+
+Ensure WCAG AA contrast for normal text and interactive controls.
+
+---
+
+# 4. Typography
+
+## Arabic — Default
+Use **Cairo** as the primary Arabic font.
+
+Optionally use IBM Plex Sans Arabic for selected headings if it improves the visual hierarchy.
+
+Arabic typography should feel professional, polished, and easy to read.
+
+## English
+Use **Inter**.
+
+## Typography Rules
+
+- Strong, clear headings.
+- Comfortable line heights.
+- Consistent font weights.
+- Short paragraphs.
+- Large hero typography.
+- Responsive font sizing with CSS clamp().
+- Avoid excessive bold formatting.
+- Ensure headings wrap naturally in both languages.
+
+---
+
+# 5. Bilingual Support — MANDATORY
+The entire website must support Arabic and English.
+
+**Arabic must be the default language.**
+
+## Arabic
+
+- `lang="ar"`
+- `dir="rtl"`
+- All navigation and content in Arabic.
+- Proper RTL layout and icon direction where applicable.
+- Localized forms and validation messages.
+
+## English
+
+- `lang="en"`
+- `dir="ltr"`
+- Complete English translations.
+- Proper LTR layouts.
+
+## Language Switcher
+Add an AR / EN language switcher in the header and footer.
+
+Switching languages should preserve the equivalent current page whenever possible.
+
+Do not mix Arabic and English within the same interface except for intentional product names and technical terminology.
+
+Store all content in structured localization dictionaries.
+
+Use these localized URL structures:
+
+- `/ar/`
+- `/en/`
+- `/ar/about`
+- `/en/about`
+- `/ar/features`
+- `/en/features`
+- `/ar/pricing`
+- `/en/pricing`
+Continue the same structure for all other pages.
+
+Redirect `/` to the Arabic homepage.
+
+Add proper hreflang tags, canonical URLs, localized meta descriptions, and Open Graph tags.
+
+---
+
+# 6. Website Architecture
+Build a complete multi-page website, not a single-page landing page.
+
+## Required Primary Pages
+
+1. Home — الرئيسية
+2. About Us — من نحن
+3. Features & Services — الخدمات والمميزات
+4. Pricing — الأسعار والباقات
+5. Tutorials / Learning Center — الشروحات
+6. Contact Us — اتصل بنا
+
+## Supporting Pages
+
+1. FAQ — الأسئلة الشائعة
+2. Privacy Policy — سياسة الخصوصية
+3. Terms & Conditions — الشروط والأحكام
+4. Refund & Cancellation Policy — سياسة الإلغاء والاسترداد
+5. Not Found — 404
+
+## Future-Ready Feature Detail Pages
+Prepare a reusable page template for:
+
+- Chatbot Builder.
+- Facebook Automation.
+- Instagram Automation.
+- Live Chat.
+- Social Media Publishing.
+- SMS Marketing.
+- Email Marketing.
+- E-commerce.
+- Analytics.
+Only publish claims and detailed capabilities that have been confirmed in the actual ChatPion installation.
+
+Unsupported features should be hidden from the public navigation until verified.
+
+---
+
+# 7. Shared Header & Navigation
+Create a premium responsive navigation inspired by Hostinger.
+
+## Desktop Header
+Include:
+
+- Wasla AI logo placeholder.
+- Home.
+- About Us.
+- Features & Services dropdown.
+- Pricing.
+- Tutorials.
+- Contact Us.
+- Language switcher.
+- Sign In link.
+- Primary CTA: Get Started / ابدأ الآن.
+Use a sticky navigation with a subtle background transition and light shadow when scrolling.
+
+Dropdown menus must support mouse, keyboard, and touch interaction.
+
+## Mobile Header
+
+- Brand logo.
+- Language switcher.
+- Hamburger menu.
+- Accessible full navigation.
+- Prominent primary CTA.
+The mobile menu must open and close smoothly, support keyboard navigation, and close after route selection.
+
+Avoid excessive animations or complicated navigation behavior.
+
+---
+
+# 8. HOME PAGE — Full Section Breakdown
+
+## Section 01 — Hero
+Create an impressive SaaS hero inspired by Hostinger's design quality.
+
+### Arabic Heading
+**وصلة ذكية بينك وبين عملائك**
+
+### Arabic Subheading
+أتمت محادثاتك، نظّم تواصلك مع العملاء، وأدر أدواتك التسويقية من منصة واحدة.
+
+### English Heading
+**Smart Connections. Smarter Growth.**
+
+### English Subheading
+Automate conversations, organize customer interactions, and manage your marketing tools in one platform.
+
+### CTA Buttons
+Primary:
+
+- ابدأ الآن
+- Get Started
+Secondary:
+
+- اكتشف المميزات
+- Explore Features
+
+### Hero Visual
+Create a sophisticated illustrative dashboard preview showing:
+
+- Chatbot conversation flow.
+- Sample customer messages.
+- Automation connections.
+- Marketing campaign indicators.
+- Simple analytics charts.
+This hero dashboard must be clearly identified as a conceptual illustration until genuine Wasla product screenshots are provided.
+
+Do not fabricate real account data, client statistics, or product performance results.
+
+Use layered interface cards, a soft purple glow, and elegant depth.
+
+Animate elements subtly.
+
+## Section 02 — Platform Overview
+Introduce the platform as a set of connected marketing and communication tools.
+
+Use short explanatory cards.
+
+Suggested categories:
+
+- Chatbot Automation.
+- Comment Automation.
+- Social Publishing.
+- Marketing Campaigns.
+- E-commerce Tools.
+- Analytics.
+Each card should have an icon, short description, and appropriate feature detail link.
+
+Only make public claims consistent with verified product capabilities.
+
+## Section 03 — Problems & Solutions
+Show the challenges businesses face:
+
+- Repetitive customer questions.
+- Missed inquiries.
+- Manual comment replies.
+- Scattered marketing operations.
+- Time-consuming publishing.
+- Difficulty organizing customer interactions.
+Present relevant Wasla solutions beside these problems.
+
+Use clear before-and-after visual storytelling without making unsupported numerical claims.
+
+## Section 04 — Chatbot Builder Spotlight
+A premium feature section with text on one side and a flow-builder illustration on the other.
+
+Explain:
+
+- Conversation flows.
+- Keyword automation.
+- Interactive buttons.
+- Automated replies.
+- Customer information collection.
+Do not show unsupported advanced AI agent features.
+
+## Section 05 — Comment Automation Spotlight
+Illustrate a simple workflow:
+
+Customer comments on a Facebook post → An automation rule detects the comment → The system responds according to configured conditions → The customer can continue the conversation where permitted.
+
+Make it visually understandable.
+
+## Section 06 — Social Publishing
+Show a calendar or content scheduling illustration.
+
+Emphasize organizing and scheduling social content on supported channels.
+
+## Section 07 — Marketing Tools
+Present SMS and email marketing with appropriate provider-configuration disclaimers.
+
+## Section 08 — E-commerce
+Present store management, product catalogs, coupons, and order handling as capabilities to be confirmed against the local version.
+
+Use original product-style UI illustrations.
+
+## Section 09 — How Wasla Works
+Four steps:
+
+1. Create your account.
+2. Connect supported channels.
+3. Configure your automation.
+4. Monitor and optimize results.
+Use a clean horizontal stepper on desktop and vertical layout on mobile.
+
+## Section 10 — Business Use Cases
+Create cards for:
+
+- Online stores.
+- Marketing agencies.
+- Service businesses.
+- Training centers.
+- Restaurants.
+Provide short, realistic use cases based on available functionality.
+
+## Section 11 — Pricing Preview
+Show three illustrative tiers:
+
+- Starter.
+- Business.
+- Agency.
+The tiers are provisional.
+
+Do not create final prices, usage limits, discounts, or free trials unless confirmed.
+
+Use clearly labeled pricing placeholders and link to the full Pricing page.
+
+## Section 12 — Tutorials Preview
+Present a few clearly marked tutorial placeholders and categories.
+
+No fake video thumbnails or broken links.
+
+Only publish real tutorials when their URLs are available.
+
+## Section 13 — Testimonials & Client Logos
+Create reusable components for verified testimonials and customer logos.
+
+Do not fabricate customers or quotations.
+
+Hide these sections from the production-facing website until real approved content is supplied.
+
+## Section 14 — FAQ
+Accordion with useful questions about:
+
+- What Wasla does.
+- Supported channels.
+- Account setup.
+- Subscription plans.
+- Support.
+- Third-party messaging costs.
+- Data privacy.
+Keep answers accurate and avoid unsupported promises.
+
+## Section 15 — Final CTA
+Create a beautiful purple gradient CTA area.
+
+Arabic example:
+
+**جاهز تبدأ تنظم تواصلك مع عملائك؟**
+
+ابدأ رحلتك مع وصلة واكتشف أدوات الأتمتة المناسبة لنشاطك.
+
+Primary button: ابدأ الآن
+
+Secondary button: تواصل معنا
+
+---
+
+# 9. ABOUT US PAGE
+Create a professional company and product introduction page.
+
+## Page Sections
+
+1. Hero introduction.
+2. What is Wasla AI?
+3. The problem we aim to solve.
+4. Our vision.
+5. Our mission.
+6. Our values.
+7. Who we serve.
+8. Why choose Wasla?
+9. CTA.
+The copy should position Wasla as a marketing automation solution developed for Arabic-speaking businesses.
+
+Do not invent company history, office addresses, employee counts, awards, partnerships, or customers.
+
+Avoid claiming proprietary ownership of the entire underlying ChatPion codebase.
+
+Make company-specific details editable later.
+
+---
+
+# 10. FEATURES & SERVICES PAGE
+Create a comprehensive overview of the platform's functional groups.
+
+Use premium cards, alternating feature sections, interactive tabs, diagrams, and contextual calls to action.
+
+Feature groups:
+
+1. Chatbot Builder.
+2. Facebook Comment Automation.
+3. Instagram Automation.
+4. Live Chat.
+5. Social Media Publishing.
+6. Messenger Marketing.
+7. SMS Marketing.
+8. Email Marketing.
+9. E-commerce Tools.
+10. Analytics and Reporting.
+Use a structured feature data model with:
+
+- ID.
+- Arabic title.
+- English title.
+- Arabic description.
+- English description.
+- Icon.
+- Screenshot.
+- Category.
+- Feature availability status.
+- External service requirements.
+- Detail-page slug.
+- Marketing visibility.
+Supported visibility states:
+
+- Verified.
+- Requires Setup.
+- Under Review.
+- Planned.
+- Hidden.
+Only verified features should appear as fully available in public marketing copy.
+
+Features requiring setup must have clear explanations.
+
+Planned or unsupported features must not be marketed as available.
+
+---
+
+# 11. PRICING PAGE
+Create an elegant pricing experience inspired by Hostinger.
+
+## Pricing Layout
+
+- Clear page hero.
+- Monthly / Yearly segmented switcher.
+- Three attractive pricing cards.
+- One highlighted recommended plan.
+- Detailed feature comparison.
+- Additional usage information.
+- FAQ.
+- Enterprise or custom inquiry CTA if needed.
+
+## Initial Packages
+Starter — for individuals and small businesses.
+
+Business — for growing businesses.
+
+Agency — for agencies and multi-account users.
+
+All prices, billing intervals, feature limits, discounts, and subscription terms are placeholders until confirmed.
+
+If pricing has not been approved, display **"قريبًا" / "Coming Soon"** or **"تواصل لمعرفة التفاصيل" / "Contact for Details"** instead of invented prices.
+
+Do not advertise annual discounts unless configured.
+
+Implement the monthly/yearly pricing switcher so it becomes functional when actual pricing data is added.
+
+Keep pricing data centralized and reusable.
+
+Design the plan comparison table to support:
+
+- Connected accounts.
+- Connected pages.
+- Chatbot limits.
+- Campaign limits.
+- Email/SMS limits.
+- E-commerce functionality.
+- Analytics.
+- Support levels.
+- Team management if available.
+Clearly distinguish external provider charges from the Wasla subscription price.
+
+---
+
+# 12. TUTORIALS / LEARNING CENTER PAGE
+Create a professional learning portal similar in purpose to ChatTarget's tutorials page, with the premium visual design of Wasla.
+
+## Categories
+
+- Getting Started.
+- Account Setup.
+- Connecting Facebook.
+- Connecting Instagram.
+- Chatbot Builder.
+- Comment Automation.
+- Campaign Management.
+- Social Publishing.
+- E-commerce.
+- Frequently Asked Questions.
+
+## Tutorial Components
+Each tutorial card should support:
+
+- Title in Arabic and English.
+- Thumbnail.
+- Video URL.
+- Category.
+- Difficulty level.
+- Duration.
+- Short description.
+- Related tutorials.
+Add search and category filters.
+
+Create a reusable tutorial detail page with an embedded video and step-by-step instructions.
+
+Use local structured tutorial data for the initial implementation.
+
+Provide helpful empty states until real content is available.
+
+Do not invent published training videos.
+
+---
+
+# 13. CONTACT US PAGE
+Build a clean professional contact page.
+
+## Sections
+
+- Contact page hero.
+- Contact form.
+- Contact categories.
+- FAQ shortcut.
+- Social media links.
+- Business contact information placeholders.
+
+## Contact Form Fields
+
+- Full Name.
+- Email.
+- Phone (optional).
+- Business Name (optional).
+- Inquiry Type.
+- Message.
+- Privacy consent.
+Inquiry types:
+
+- General Inquiry.
+- Sales & Pricing.
+- Technical Support.
+- Partnership.
+- Other.
+Include:
+
+- Client-side and server-side validation when a backend is available.
+- Clear error and success states.
+- Anti-spam protection.
+- Accessible labels.
+- Basic form rate limiting when implemented.
+Do not show fake success messages.
+
+If no email provider or database is configured, keep the form in an explicit unconfigured state and explain how to connect it. Do not silently discard submissions.
+
+---
+
+# 14. ANIMATION & INTERACTION SYSTEM
+Use premium, restrained animations inspired by Hostinger.
+
+Suggested implementation:
+
+- Framer Motion / Motion for React.
+- CSS transitions for lightweight interactions.
+- Intersection Observer for scroll-triggered reveal.
+
+## Animation Guidelines
+
+### Hero
+
+- Subtle fade-in.
+- Small staggered entrances.
+- Gentle floating interface decorations.
+- Soft animated background gradient.
+
+### Cards
+
+- Slight lift on hover.
+- Soft shadow transition.
+- Gentle border and background changes.
+
+### Feature Sections
+
+- Fade-up on scroll.
+- Image and text staggered reveal.
+- Lightweight illustrative flow animations.
+
+### Pricing
+
+- Hover emphasis.
+- Smooth selection transitions.
+- Animated monthly/yearly switch when pricing data exists.
+
+### Navigation
+
+- Smooth dropdown transitions.
+- Subtle sticky-header changes.
+
+### FAQ
+
+- Accessible accordion animations.
+
+## Performance Rules
+
+- Avoid excessive continuous animations.
+- Avoid heavy 3D assets.
+- Animate transform and opacity where practical.
+- Respect `prefers-reduced-motion`.
+- Disable or simplify decorative effects on lower-powered devices.
+
+---
+
+# 15. TECHNICAL STACK
+Use Lovable's supported modern React-based architecture.
+
+Preferred tools where supported:
+
+- React.
+- TypeScript.
+- Vite.
+- Tailwind CSS.
+- shadcn/ui.
+- Lucide icons.
+- Motion / Framer Motion.
+- React Router.
+- Structured localization dictionaries.
+Avoid unnecessary backend dependencies for the initial marketing frontend.
+
+Keep the marketing website separate from ChatPion's PHP/CodeIgniter application.
+
+Create reusable components and modular pages.
+
+Suggested structure:
+
+`src/components/layout/`
+
+`src/components/sections/`
+
+`src/components/ui/`
+
+`src/pages/`
+
+`src/data/`
+
+`src/i18n/`
+
+`src/config/`
+
+`src/styles/`
+
+## Additional Engineering Requirements
+
+- Semantic HTML.
+- Responsive layouts.
+- Accessibility.
+- SEO metadata per route.
+- XML sitemap preparation.
+- robots.txt.
+- Lazy-loaded images.
+- Optimized assets.
+- Proper loading states.
+- Working navigation.
+- Working language switcher.
+- Functional links.
+- Error and empty states.
+- No fake live data.
+- Clean, maintainable code.
+
+---
+
+# 16. PRODUCT APP INTEGRATION
+The marketing website and ChatPion application are separate systems.
+
+Prepare configurable links for:
+
+- Login.
+- Register.
+- Dashboard.
+- Subscription checkout.
+Do not hardcode an imaginary app domain.
+
+Use environment configuration or a centralized configuration file to define these destinations.
+
+Do not build a fake ChatPion dashboard or authentication backend in the marketing site.
+
+Do not claim subscriptions are active until the actual application and payment process are integrated and tested.
+
+---
+
+# 17. CONTENT MANAGEMENT & FUTURE UPDATES
+The ChatPion source-code feature audit is still in progress.
+
+Therefore, build the website to allow easy updates to:
+
+- Product features.
+- Feature availability.
+- Pricing packages.
+- FAQ.
+- Tutorials.
+- Testimonials.
+- Customer logos.
+- Integrations.
+- Contact details.
+- Legal content.
+Use centralized typed data files or a lightweight content structure.
+
+Avoid scattering pricing, availability, and feature claims across hardcoded page components.
+
+---
+
+# 18. REQUIRED OUTPUT
+Deliver a complete first implementation of the multi-page website.
+
+Requirements:
+
+1. All six main pages implemented.
+2. All supporting pages implemented.
+3. Arabic and English content.
+4. Arabic as the default language.
+5. Consistent navigation and footer.
+6. Premium Hostinger-inspired design.
+7. Functional responsive mobile layout.
+8. Reusable feature and pricing components.
+9. High-quality, restrained animations.
+10. Realistic conceptual dashboard illustrations clearly identified as examples.
+11. Pricing and feature placeholders where actual business details are pending.
+12. Clean code and a maintainable structure.
+13. No fake testimonials, clients, metrics, integrations, or feature claims.
+14. No purchased add-on functionality assumed to be included.
+15. Build in a way that supports later integration with the ChatPion application.
+
+## Final Design Objective
+The finished Wasla AI marketing website should visually compete with premium international SaaS websites, take structural inspiration from ChatTarget's multi-page website, and present ChatPion's verified capabilities through a modern, bilingual Arabic-first experience.
+
+The result should feel like a genuine, independent software brand — not a generic template or a direct copy of Hostinger or ChatTarget.
+
+**Start implementing the full website now, rather than returning only a design proposal.**
+
+---
+
+# GitHub Pages Deployment
+
+The website is deployed by `.github/workflows/deploy.yml` when changes are pushed to `main` or `master`. The workflow also supports manual runs from the GitHub Actions tab.
+
+To enable deployment:
+
+1. Push the project to a GitHub repository.
+2. Open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+3. Open the **Actions** tab and confirm that **Deploy to GitHub Pages** completes successfully.
+4. Open the Pages URL shown in the deployment job. Direct links to localized pages are supported.
+
+The workflow configures the correct base path for both project repositories and `username.github.io` repositories. For local development, run `npm install` once and then `npm run dev`. To build locally, run `npm run build`.
