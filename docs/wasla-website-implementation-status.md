@@ -20,6 +20,30 @@ The existing project is a vanilla JavaScript/Vite multi-page marketing website. 
 
 All six primary pages remain available in Arabic and English: Home, About, Features, Pricing, Tutorials, and Contact. FAQ, Privacy, Terms, Refund, feature-detail routes, shared navigation/footer, feature cards, pricing cards, tutorial filtering, and contact form remain in the existing application architecture.
 
+## GitHub Pages routing update
+
+GitHub Pages serves files from the repository's published directory and does not provide server-side SPA rewrites. The Vite build previously emitted only the root HTML entry point, so requesting a localized URL directly could not find a matching file.
+
+The postbuild generator now emits a static `index.html` for each supported Arabic and English route. The generated entries reuse the Vite application and its base-prefixed assets, set the correct document language and direction, and include route-specific title/description, canonical, and hreflang metadata when `SITE_URL` is configured. The sitemap now lists the same 40 localized public routes, including public feature details, and excludes the hidden Messenger broadcast feature. `dist/404.html` remains the unknown-route fallback; it renders the localized application 404 while retaining the host's HTTP 404 response.
+
+The existing deployment workflow already supplies the Pages origin and base path and builds with that base, so it was not changed. The root application entry continues to redirect `/ME-WASLA/` to `/ME-WASLA/ar/`, preserving query parameters and fragments.
+
+### GitHub Pages validation
+
+| Check | Result |
+|---|---|
+| `npm run check` | Passed: JavaScript syntax checks |
+| `npm run build` | Passed: default Vite build; sitemap generation was skipped as expected without `SITE_URL` |
+| `SITE_URL=https://m-elmaghawry.github.io`, `SITE_BASE_PATH=/ME-WASLA/`, `npm run build -- --base /ME-WASLA/` | Passed: Pages-base build, route generation, sitemap, robots file, and postbuild assertions |
+| Generated route files | Passed: 40 localized entries covering home, primary/supporting/legal pages, and all 10 public feature-detail routes |
+| Direct HTTP requests | Passed in a local static-host harness mapping `/ME-WASLA/` to `dist`: 41 expected requests (including project root) returned HTTP 200; an unsupported route returned HTTP 404 |
+| Asset request | Passed in the same harness: a base-prefixed JavaScript asset returned `text/javascript` |
+| Browser checks | Passed: root redirected once to Arabic home with query/hash preserved; nested Arabic page loaded after refresh; Features CTA, Arabic-to-English switch, and browser back navigation reached the expected pages; unsupported route rendered the Arabic 404 |
+| Canonical/hreflang and sitemap | Passed: generated route entries contain language-appropriate metadata; sitemap contains 40 public localized URLs and excludes the hidden Messenger route |
+| GitHub Actions / live deployment | Not run. No push or deployment was performed, so the production host has not yet been revalidated. |
+
+The local static-host harness models GitHub Pages' project-prefix file mapping and `404.html` behavior. It is not a substitute for post-deployment checks against the live Pages host. Unknown URLs intentionally retain HTTP 404; GitHub Pages cannot rewrite them to an HTTP 200 SPA route.
+
 ## Validation performed
 
 | Check | Result |
@@ -50,6 +74,13 @@ No separate lint, type-check, or automated test command exists in the project co
 
 No ChatPion backend or existing design stylesheet was changed.
 
+### Files changed for the GitHub Pages routing fix
+
+- `scripts/generate-sitemap.mjs` — generates static localized route entries, route metadata, complete public-route sitemap/robots files, and the 404 fallback; checks generated locale, assets, and metadata.
+- `docs/wasla-website-implementation-status.md` — records the routing cause, implementation, test results, and hosting limitation.
+
+The GitHub Actions workflow and application router were not changed. No push or deployment was performed.
+
 ## Remaining work
 
 1. Configure a reviewed contact endpoint before accepting submissions online.
@@ -58,3 +89,4 @@ No ChatPion backend or existing design stylesheet was changed.
 4. Approve pricing and subscription terms before replacing placeholders.
 5. Publish genuine tutorial content when it is available.
 6. Address the separate backend security and deployment-readiness findings before connecting customer accounts or payments.
+7. After approval and deployment, recheck direct route loading, refresh, assets, 404 status, canonical/hreflang, and sitemap on the live GitHub Pages URL.
